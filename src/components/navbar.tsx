@@ -22,10 +22,14 @@ export function Navbar() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="outline" className="hidden sm:flex">
-            Sign In
-          </Button>
-          <Button className="bg-[#00ff8c] text-black hover:bg-[#00ff8c]/90">Play Now</Button>
+          <Link href="/login">
+            <Button variant="outline" className="hidden sm:flex">
+              Sign In
+            </Button>
+          </Link>
+          <Link href="/signup">
+            <Button className="bg-[#00ff8c] text-black hover:bg-[#00ff8c]/90">Play Now</Button>
+          </Link>
         </div>
       </div>
     </header>

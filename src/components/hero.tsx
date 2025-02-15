@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Trophy, Users, Shield } from "lucide-react"
+import { Trophy, Users, Shield, Clock } from "lucide-react"
+import Link from "next/link"
 
 export function Hero() {
   return (
@@ -19,17 +20,19 @@ export function Hero() {
           </p>
         </div>
         <div className="flex flex-col gap-2 min-[400px]:flex-row">
-          <Button size="lg" className="bg-[#00ff8c] text-black hover:bg-[#00ff8c]/90">
-            Start Playing
-          </Button>
+          <Link href="/login">
+            <Button size="lg" className="bg-[#00ff8c] text-black hover:bg-[#00ff8c]/90">
+              Start Playing
+            </Button>
+          </Link>
           <Button size="lg" variant="outline">
             Watch Matches
           </Button>
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-4 text-muted-foreground">
           <div className="flex items-center gap-2">
-            <Trophy className="h-4 w-4 text-[#00ff8c]" />
-            <span>$100K+ Prize Pool</span>
+            <Clock className="h-4 w-4 text-[#00ff8c]" />
+            <span>24/7 Active Lobby</span>
           </div>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-[#00ff8c]" />
