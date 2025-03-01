@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Search, PlusCircle, MessageCircle, User, Grid } from "lucide-react"
+import { Home, Search, PlusCircle, MessageCircle, User, Grid, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
@@ -14,6 +14,7 @@ const navItems = [
   { icon: PlusCircle, label: "New Game", href: "/dashboard/new-game" },
   { icon: MessageCircle, label: "Chat", href: "/dashboard/chat" },
   { icon: User, label: "Profile", href: "/dashboard/profile" },
+  { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ]
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -64,16 +65,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         {/* Mobile Navigation */}
         <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-black/90 border-t border-[#00ff9d]/10">
           <div className="flex justify-around p-4">
-            {navItems.map(({ icon: Icon, href }) => (
+            {navItems.map(({ icon: Icon, label, href }) => (
               <Link
                 key={href}
                 href={href}
                 className={cn(
-                  "w-12 h-12 rounded-full flex items-center justify-center",
-                  pathname === href ? "bg-[#00ff9d] text-black" : "bg-[#00ff9d]/10 text-white",
+                  "flex flex-col items-center gap-1",
+                  pathname === href ? "text-[#00ff9d]" : "text-white"
                 )}
               >
                 <Icon className="w-6 h-6" />
+                <span className="text-xs">{label}</span>
               </Link>
             ))}
           </div>
